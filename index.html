@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CBSE Class 10 Board Exam 2027 Countdown</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent: #38bdf8;
+      --border: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1.5rem;
+    }
+
+    .container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      max-width: 680px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .timer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .time-box {
+      background: var(--bg-color);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 0.5rem;
+    }
+
+    .time-value {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+    }
+
+    .time-label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.4rem;
+    }
+
+    .schedule-note {
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1.75rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .schedule-note strong {
+      color: var(--text-primary);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.88;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0f172a;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    @media (max-width: 480px) {
+      .timer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <span class="badge">Academic Session 2026–27</span>
+    <h1>CBSE Class 10 Board Exams</h1>
+    <p class="subtitle">Commencing Tuesday, 16 February 2027 at 10:30 AM IST</p>
+
+    <div class="timer-grid" id="countdown">
+      <div class="time-box">
+        <div class="time-value" id="days">00</div>
+        <div class="time-label">Days</div>
+      </div>
+      <div class="time-box">
+        <div class="time-value" id="hours">00</div>
+        <div class="time-label">Hours</div>
+      </div>
+      <div class="time-box">
+        <div class="time-value" id="minutes">00</div>
+        <div class="time-label">Minutes</div>
+      </div>
+      <div class="time-box">
+        <div class="time-value" id="seconds">00</div>
+        <div class="time-label">Seconds</div>
+      </div>
+    </div>
+
+    <div class="schedule-note">
+      <strong>Key Core Exam Dates:</strong><br />
+      17 Feb: Mathematics &bull; 22 Feb: Science &bull; 26 Feb: English &bull; 03 Mar: Hindi &bull; 08 Mar: Social Science
+    </div>
+
+    <div class="btn-group">
+      <a href="https://www.cbse.gov.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        Official CBSE Website
+      </a>
+      <a href="https://www.cbse.gov.in/cbsenew/documents/Datesheet_ClassX%20_XII_2027_Main_06112026.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+        Download 2027 Date Sheet (PDF)
+      </a>
+    </div>
+  </main>
+
+  <script>
+    // Target: 16 February 2027, 10:30:00 AM IST (+05:30)
+    const examDate = new Date("2027-02-16T10:30:00+05:30").getTime();
+
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = examDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("countdown").innerHTML =
+          '<div class="time-box" style="grid-column: 1 / -1;"><div class="time-value" style="font-size: 1.5rem;">Examinations Have Commenced</div></div>';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = String(days).padStart(2, "0");
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
