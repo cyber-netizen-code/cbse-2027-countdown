@@ -36,7 +36,7 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 2.5rem 2rem;
-      max-width: 680px;
+      max-width: 720px;
       width: 100%;
       text-align: center;
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
@@ -100,15 +100,38 @@
     .schedule-note {
       background: rgba(15, 23, 42, 0.6);
       border-radius: 10px;
-      padding: 1rem;
+      padding: 1.25rem;
       margin-bottom: 1.75rem;
-      font-size: 0.875rem;
+      text-align: left;
+      font-size: 0.9rem;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .schedule-note strong {
       color: var(--text-primary);
+      display: block;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .schedule-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem 1.5rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .schedule-list li {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .schedule-list span:last-child {
+      color: var(--accent);
+      font-weight: 600;
     }
 
     .btn-group {
@@ -142,9 +165,12 @@
       border: 1px solid var(--border);
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       .timer-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+      .schedule-list {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -175,8 +201,15 @@
     </div>
 
     <div class="schedule-note">
-      <strong>Your Subjects:</strong><br />
-      Maths &bull; AI &bull; Science &bull; Social &bull; English &bull; Tamil
+      <strong>Subject Schedule (2027)</strong>
+      <ul class="schedule-list">
+        <li><span>Tamil</span> <span>18 Feb 2027</span></li>
+        <li><span>English Language & Literature</span> <span>26 Feb 2027</span></li>
+        <li><span>Mathematics (Standard / Basic)</span> <span>17 Feb 2027</span></li>
+        <li><span>Science</span> <span>22 Feb 2027</span></li>
+        <li><span>Social Science</span> <span>08 Mar 2027</span></li>
+        <li><span>Artificial Intelligence (AI)</span> <span>03 Mar 2027</span></li>
+      </ul>
     </div>
 
     <div class="btn-group">
