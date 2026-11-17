@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CBSE Class 10 Board Exam 2027 Countdown</title>
+  <title>CBSE 2027 Smart Board Live Wallpaper</title>
   <style>
     :root {
-      --bg-color: #0f172a;
-      --card-bg: #1e293b;
-      --text-primary: #f8fafc;
-      --text-secondary: #94a3b8;
-      --accent: #38bdf8;
-      --border: #334155;
+      --card-bg: rgba(18, 14, 10, 0.85); /* Deep warm dark tone */
+      --box-bg: rgba(36, 28, 20, 0.9);
+      --text-primary: #fefae0;
+      --text-secondary: #dda15e;
+      --accent: #dda15e; /* Golden brown accent */
+      --border: rgba(212, 163, 115, 0.35); /* Golden brown border */
+      --glow: rgba(188, 108, 37, 0.4);
     }
 
     * {
@@ -22,67 +23,115 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-color);
       color: var(--text-primary);
+      min-height: 100vh;
+      background-color: #120e0a;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background-image 0.6s ease-in-out;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      padding: 1.5rem;
+      padding: 2rem;
     }
 
-    .container {
+    /* Golden brown corner shade & vignette overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(18, 14, 10, 0.4), rgba(18, 14, 10, 0.85)),
+                  linear-gradient(135deg, rgba(188, 108, 37, 0.15) 0%, transparent 40%, transparent 60%, rgba(188, 108, 37, 0.15) 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Main Container - Default: Large Full-Screen Wallpaper Mode */
+    .board-container {
+      position: relative;
+      z-index: 1;
       background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      max-width: 720px;
+      border-radius: 20px;
+      padding: 2.25rem 2.5rem;
       width: 100%;
-      text-align: center;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+      max-width: 820px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75), 0 0 30px var(--glow);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Header & Live Clock */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+
+    .title-group h1 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
     }
 
     .badge {
       display: inline-block;
-      background: rgba(56, 189, 248, 0.15);
+      background: rgba(221, 161, 94, 0.18);
       color: var(--accent);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.85rem;
+      padding: 0.25rem 0.65rem;
       border-radius: 999px;
-      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
     }
 
-    h1 {
-      font-size: 1.75rem;
+    .clock-group {
+      text-align: right;
+    }
+
+    .live-clock {
+      font-size: 1.85rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
     }
 
-    .subtitle {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      margin-bottom: 2rem;
+    .live-date {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-top: 0.25rem;
+      font-weight: 500;
     }
 
+    /* Countdown Grid */
     .timer-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
 
     .time-box {
-      background: var(--bg-color);
+      background: var(--box-bg);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 1.25rem 0.5rem;
+      padding: 1.1rem 0.5rem;
+      text-align: center;
     }
 
     .time-value {
-      font-size: 2.25rem;
+      font-size: 2.35rem;
       font-weight: 700;
       color: var(--accent);
       font-variant-numeric: tabular-nums;
@@ -90,96 +139,158 @@
     }
 
     .time-label {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-secondary);
       text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.35rem;
+    }
+
+    /* Chronological Timetable */
+    .schedule-box {
+      background: rgba(18, 14, 10, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.15rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .schedule-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-top: 0.4rem;
-    }
-
-    .schedule-note {
-      background: rgba(15, 23, 42, 0.6);
-      border-radius: 10px;
-      padding: 1.25rem;
-      margin-bottom: 1.75rem;
-      text-align: left;
-      font-size: 0.9rem;
       color: var(--text-secondary);
-      line-height: 1.7;
-    }
-
-    .schedule-note strong {
-      color: var(--text-primary);
-      display: block;
-      margin-bottom: 0.5rem;
-      text-align: center;
-      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
     }
 
     .schedule-list {
+      list-style: none;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem 1.5rem;
-      list-style: none;
-      padding: 0;
+      gap: 0.6rem 1.75rem;
     }
 
     .schedule-list li {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      font-size: 0.92rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px dashed rgba(212, 163, 115, 0.15);
     }
 
-    .schedule-list span:last-child {
+    .schedule-list li span:first-child {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .schedule-list li span:last-child {
       color: var(--accent);
       font-weight: 600;
+      font-variant-numeric: tabular-nums;
     }
 
-    .btn-group {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 600;
-      padding: 0.75rem 1.25rem;
+    /* Quote Box */
+    .quote-box {
+      background: rgba(221, 161, 94, 0.08);
+      border-left: 3px solid var(--accent);
       border-radius: 8px;
-      transition: opacity 0.2s ease;
+      padding: 0.85rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
     }
 
-    .btn:hover {
-      opacity: 0.88;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #0f172a;
-    }
-
-    .btn-secondary {
-      background: transparent;
+    .quote-text {
       color: var(--text-primary);
-      border: 1px solid var(--border);
+      font-style: italic;
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 600px) {
-      .timer-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .schedule-list {
-        grid-template-columns: 1fr;
-      }
+    .quote-author {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    /* ============================================================
+       AUTOMATIC COMPACT / IN-USE MODE (Triggered when other window is over)
+       ============================================================ */
+    body.compact-mode {
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 1rem;
+      background: transparent !important; /* Lets your active app show behind the floating corner widget */
+    }
+
+    body.compact-mode::before {
+      display: none; /* Removes dark background tint when floating over apps */
+    }
+
+    body.compact-mode .board-container {
+      max-width: 290px;
+      padding: 0.9rem 1rem;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px var(--glow);
+    }
+
+    body.compact-mode .top-bar {
+      margin-bottom: 0.65rem;
+      padding-bottom: 0.5rem;
+      align-items: center;
+    }
+
+    body.compact-mode .badge,
+    body.compact-mode .live-date,
+    body.compact-mode .schedule-box,
+    body.compact-mode .quote-box {
+      display: none;
+    }
+
+    body.compact-mode .title-group h1 {
+      font-size: 0.88rem;
+    }
+
+    body.compact-mode .live-clock {
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+
+    body.compact-mode .timer-grid {
+      gap: 0.35rem;
+      margin-bottom: 0;
+    }
+
+    body.compact-mode .time-box {
+      padding: 0.4rem 0.2rem;
+      border-radius: 8px;
+    }
+
+    body.compact-mode .time-value {
+      font-size: 1.05rem;
+    }
+
+    body.compact-mode .time-label {
+      font-size: 0.52rem;
+      margin-top: 0.15rem;
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <span class="badge">Academic Session 2026–27</span>
-    <h1>CBSE Class 10 Board Exams</h1>
-    <p class="subtitle">Commencing Tuesday, 16 February 2027 at 10:30 AM IST</p>
+  <div class="board-container" id="board">
+    <div class="top-bar">
+      <div class="title-group">
+        <span class="badge">CBSE Class 10 • 2027</span>
+        <h1>Board Exam Countdown</h1>
+      </div>
+      <div class="clock-group">
+        <div class="live-clock" id="live-clock">00:00:00 AM</div>
+        <div class="live-date" id="live-date">Loading date...</div>
+      </div>
+    </div>
 
     <div class="timer-grid" id="countdown">
       <div class="time-box">
@@ -200,30 +311,68 @@
       </div>
     </div>
 
-    <div class="schedule-note">
-      <strong>Subject Schedule (2027)</strong>
+    <div class="schedule-box">
+      <div class="schedule-title">Exam Timetable (Chronological Order)</div>
       <ul class="schedule-list">
-        <li><span>Tamil</span> <span>18 Feb 2027</span></li>
-        <li><span>English Language & Literature</span> <span>26 Feb 2027</span></li>
-        <li><span>Mathematics (Standard / Basic)</span> <span>17 Feb 2027</span></li>
-        <li><span>Science</span> <span>22 Feb 2027</span></li>
-        <li><span>Social Science</span> <span>08 Mar 2027</span></li>
-        <li><span>Artificial Intelligence (AI)</span> <span>03 Mar 2027</span></li>
+        <li><span>Mathematics (Standard / Basic)</span> <span>Wed, 17 Feb 2027</span></li>
+        <li><span>Science</span> <span>Mon, 22 Feb 2027</span></li>
+        <li><span>Artificial Intelligence</span> <span>Wed, 24 Feb 2027</span></li>
+        <li><span>English Language and Literature</span> <span>Fri, 26 Feb 2027</span></li>
+        <li><span>Tamil</span> <span>Thu, 04 Mar 2027</span></li>
+        <li><span>Social Science</span> <span>Mon, 08 Mar 2027</span></li>
       </ul>
     </div>
 
-    <div class="btn-group">
-      <a href="https://www.cbse.gov.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-        Official CBSE Website
-      </a>
-      <a href="https://www.cbse.gov.in/cbsenew/documents/Datesheet_ClassX%20_XII_2027_Main_06112026.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-        Download 2027 Date Sheet (PDF)
-      </a>
+    <div class="quote-box">
+      <div class="quote-text" id="quote-text">"Success is the sum of small efforts, repeated day in and day out."</div>
+      <div class="quote-author" id="quote-author">— Robert Collier</div>
     </div>
-  </main>
+  </div>
 
   <script>
-    // Target: 16 February 2027, 10:30:00 AM IST (+05:30)
+    const quotes = [
+      { text: "Success is the sum of small efforts, repeated day in and day out.", author: "Robert Collier" },
+      { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+      { text: "The secret of getting ahead is getting started.", author: "Mark Twain" },
+      { text: "It always seems impossible until it's done.", author: "Nelson Mandela" },
+      { text: "Discipline is the bridge between goals and accomplishment.", author: "Jim Rohn" },
+      { text: "Your future is created by what you do today, not tomorrow.", author: "Robert Kiyosaki" },
+      { text: "Dream big. Start small. Act now.", author: "Robin Sharma" },
+      { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+      { text: "Excellence is not an act, but a habit.", author: "Aristotle" },
+      { text: "Work hard in silence, let your results make the noise.", author: "Frank Ocean" }
+    ];
+
+    // 1. Daily Wallpaper & Quote Rotation
+    function setDailyContent() {
+      const dayNumber = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+      const dailySeed = "cbse2027_board_" + (dayNumber % 89);
+      document.body.style.backgroundImage = `url('https://picsum.photos/seed/${dailySeed}/1920/1080')`;
+
+      const todayQuote = quotes[dayNumber % quotes.length];
+      document.getElementById("quote-text").textContent = `"${todayQuote.text}"`;
+      document.getElementById("quote-author").textContent = `— ${todayQuote.author}`;
+    }
+
+    // 2. Live Digital Clock & Date
+    function updateClock() {
+      const now = new Date();
+      document.getElementById("live-clock").textContent = now.toLocaleTimeString("en-IN", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+      }).toUpperCase();
+
+      document.getElementById("live-date").textContent = now.toLocaleDateString("en-IN", {
+        weekday: "long",
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      });
+    }
+
+    // 3. Countdown Timer (Target: 16 Feb 2027, 10:30 AM IST)
     const examDate = new Date("2027-02-16T10:30:00+05:30").getTime();
 
     function updateCountdown() {
@@ -232,7 +381,7 @@
 
       if (distance <= 0) {
         document.getElementById("countdown").innerHTML =
-          '<div class="time-box" style="grid-column: 1 / -1;"><div class="time-value" style="font-size: 1.5rem;">Examinations Have Commenced</div></div>';
+          '<div class="time-box" style="grid-column: 1 / -1;"><div class="time-value" style="font-size: 1.25rem;">Examinations Have Commenced</div></div>';
         return;
       }
 
@@ -247,8 +396,25 @@
       document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
     }
 
+    // 4. Automatic Visibility Detector (Switches to corner widget when another window covers the page)
+    function handleVisibilityChange() {
+      if (document.hidden) {
+        document.body.classList.add("compact-mode");
+      } else {
+        document.body.classList.remove("compact-mode");
+      }
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Initialize everything
+    setDailyContent();
+    updateClock();
     updateCountdown();
-    setInterval(updateCountdown, 1000);
+    setInterval(() => {
+      updateClock();
+      updateCountdown();
+    }, 1000);
   </script>
 </body>
 </html>
