@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CBSE 2027 Smart Board Gaming Live Wallpaper</title>
+  <title>CBSE 2027 Smart Board Live Wallpaper</title>
   <style>
     :root {
-      --glass-bg: rgba(20, 12, 8, 0.58);
-      --text-primary: #fdf8f2;
-      --text-secondary: #e6ccb2;
-      --accent: #dda15e;
-      --border: rgba(176, 117, 62, 0.55);
-      --glow-color: rgba(188, 108, 37, 0.45);
+      --glass-bg: rgba(28, 18, 12, 0.62);
+      --text-primary: #fdfaf6;
+      --text-secondary: #f0ebd8;
+      --accent: #e3d5ca;
+      --border: rgba(227, 213, 202, 0.45);
+      --glow-color: rgba(212, 163, 115, 0.4);
       --clock-red: #ef4444;
     }
 
@@ -26,11 +26,7 @@
       color: var(--text-primary);
       width: 100vw;
       height: 100vh;
-      background-color: #120a06;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      transition: background-image 1.2s ease-in-out, color 2s ease;
+      background-color: #120c08;
       overflow: hidden;
       display: flex;
       justify-content: center;
@@ -38,25 +34,31 @@
       padding: 1.5rem;
     }
 
-    /* Slow ambient hue-shift animation for the outer screen aura */
-    @keyframes slowColorShift {
-      0%   { filter: hue-rotate(0deg); }
-      50%  { filter: hue-rotate(32deg); }
-      100% { filter: hue-rotate(0deg); }
+    /* Dual Wallpaper Layers for Smooth 10-Minute Fade Transitions */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: opacity 2s ease-in-out;
+      z-index: 0;
     }
 
-    /* Full-Screen Theme Edge Shade & Frame (Transparent Center) */
+    #bg1 { opacity: 1; }
+    #bg2 { opacity: 0; }
+
+    /* Screen Frame with Dynamic Brown/White Color Shifting */
     .screen-frame {
       position: fixed;
       inset: 12px;
       border: 2px solid var(--border);
       border-radius: 18px;
-      background: radial-gradient(circle at center, transparent 58%, rgba(16, 10, 6, 0.65) 100%);
+      background: radial-gradient(circle at center, transparent 56%, rgba(18, 11, 7, 0.7) 100%);
       box-shadow: inset 0 0 65px var(--glow-color), 0 0 30px var(--glow-color);
       pointer-events: none;
       z-index: 2;
-      transition: border-color 2.5s ease, box-shadow 2.5s ease;
-      animation: slowColorShift 24s ease-in-out infinite;
+      transition: border-color 2s ease, box-shadow 2s ease;
     }
 
     /* Full-Screen Transparent Layout */
@@ -84,19 +86,19 @@
 
     .title-group {
       background: var(--glass-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border);
       padding: 1rem 1.5rem;
       border-radius: 16px;
-      box-shadow: 0 10px 28px rgba(14, 8, 4, 0.65);
+      box-shadow: 0 10px 28px rgba(12, 7, 4, 0.7);
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
-      transition: background 2.5s ease, border-color 2.5s ease;
+      transition: background 2s ease, border-color 2s ease;
     }
 
     .badge {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.15);
       color: var(--accent);
       font-size: 0.75rem;
       font-weight: 700;
@@ -105,7 +107,7 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-bottom: 0.4rem;
-      transition: color 2.5s ease;
+      transition: color 2s ease;
     }
 
     .title-group h1 {
@@ -119,7 +121,7 @@
       color: var(--accent);
       margin-top: 0.3rem;
       font-weight: 600;
-      transition: color 2.5s ease;
+      transition: color 2s ease;
     }
 
     /* Analog Clock with Exam-Days Depleting Red Boundary */
@@ -131,11 +133,11 @@
       justify-content: center;
       align-items: center;
       background: var(--glass-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-radius: 50%;
-      box-shadow: 0 12px 32px rgba(14, 8, 4, 0.75);
-      transition: background 2.5s ease;
+      box-shadow: 0 12px 32px rgba(12, 7, 4, 0.8);
+      transition: background 2s ease;
     }
 
     .clock-svg {
@@ -166,7 +168,7 @@
       inset: 13px;
       border-radius: 50%;
       border: 1px solid var(--border);
-      transition: border-color 2.5s ease;
+      transition: border-color 2s ease;
     }
 
     .hand {
@@ -180,7 +182,7 @@
     .hour-hand {
       width: 4px;
       height: 32px;
-      background: #fdf8f2;
+      background: #fdfaf6;
       margin-left: -2px;
     }
 
@@ -189,7 +191,7 @@
       height: 46px;
       background: var(--accent);
       margin-left: -1.5px;
-      transition: background 2.5s ease;
+      transition: background 2s ease;
     }
 
     .second-hand {
@@ -206,7 +208,7 @@
       width: 8px;
       height: 8px;
       background: var(--clock-red);
-      border: 2px solid #fdf8f2;
+      border: 2px solid #fdfaf6;
       border-radius: 50%;
       transform: translate(-50%, -50%);
     }
@@ -215,7 +217,7 @@
       position: absolute;
       width: 2px;
       height: 6px;
-      background: rgba(255, 255, 255, 0.65);
+      background: rgba(253, 250, 246, 0.7);
       left: 50%;
       top: 4px;
       margin-left: -1px;
@@ -234,14 +236,14 @@
 
     .time-box {
       background: var(--glass-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 1.25rem 0.75rem;
       text-align: center;
-      box-shadow: 0 12px 28px rgba(14, 8, 4, 0.65);
-      transition: background 2.5s ease, border-color 2.5s ease;
+      box-shadow: 0 12px 28px rgba(12, 7, 4, 0.7);
+      transition: background 2s ease, border-color 2s ease;
     }
 
     .time-value {
@@ -251,7 +253,7 @@
       font-variant-numeric: tabular-nums;
       line-height: 1.05;
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
-      transition: color 2.5s ease;
+      transition: color 2s ease;
     }
 
     .time-label {
@@ -280,8 +282,8 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 1rem 1.5rem;
-      box-shadow: 0 12px 28px rgba(14, 8, 4, 0.65);
-      transition: background 2.5s ease, border-color 2.5s ease;
+      box-shadow: 0 12px 28px rgba(12, 7, 4, 0.7);
+      transition: background 2s ease, border-color 2s ease;
     }
 
     .schedule-title {
@@ -291,7 +293,7 @@
       color: var(--accent);
       margin-bottom: 0.65rem;
       font-weight: 700;
-      transition: color 2.5s ease;
+      transition: color 2s ease;
     }
 
     .schedule-list {
@@ -307,7 +309,7 @@
       align-items: center;
       font-size: 0.9rem;
       padding-bottom: 0.35rem;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
+      border-bottom: 1px dashed rgba(253, 250, 246, 0.2);
       text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
     }
 
@@ -321,13 +323,13 @@
       font-weight: 700;
       font-variant-numeric: tabular-nums;
       margin-left: 0.75rem;
-      transition: color 2.5s ease;
+      transition: color 2s ease;
     }
 
     .quote-box {
       background: var(--glass-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border);
       border-left: 4px solid var(--accent);
       border-radius: 10px;
@@ -336,9 +338,9 @@
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      box-shadow: 0 10px 25px rgba(14, 8, 4, 0.6);
+      box-shadow: 0 10px 25px rgba(12, 7, 4, 0.65);
       text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
-      transition: background 2.5s ease, border-color 2.5s ease;
+      transition: background 2s ease, border-color: 2s ease;
     }
 
     .quote-text {
@@ -352,12 +354,10 @@
       font-weight: 700;
       font-size: 0.8rem;
       white-space: nowrap;
-      transition: color 2.5s ease;
+      transition: color 2s ease;
     }
 
-    /* ============================================================
-       COMPACT CORNER MODE (When another window is over desktop)
-       ============================================================ */
+    /* COMPACT CORNER MODE */
     body.compact-mode {
       justify-content: flex-end;
       align-items: flex-start;
@@ -458,6 +458,10 @@
   </style>
 </head>
 <body>
+  <!-- Dual Background Layers for Smooth 10-Minute Crossfades -->
+  <div class="bg-layer" id="bg1"></div>
+  <div class="bg-layer" id="bg2"></div>
+
   <div class="screen-frame"></div>
 
   <div class="board-container" id="board">
@@ -522,64 +526,26 @@
   </div>
 
   <script>
-    // Paired Gaming Wallpapers + Matching Color Themes (Rotates every 30 minutes)
-    const themes = [
-      {
-        wallpaper: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=85",
-        glassBg: "rgba(22, 13, 8, 0.58)",
-        accent: "#dda15e",
-        border: "rgba(176, 117, 62, 0.55)",
-        glow: "rgba(188, 108, 37, 0.45)"
-      },
-      {
-        wallpaper: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1920&q=85",
-        glassBg: "rgba(12, 18, 28, 0.58)",
-        accent: "#38bdf8",
-        border: "rgba(56, 189, 248, 0.5)",
-        glow: "rgba(14, 165, 233, 0.4)"
-      },
-      {
-        wallpaper: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1920&q=85",
-        glassBg: "rgba(24, 12, 28, 0.58)",
-        accent: "#e879f9",
-        border: "rgba(217, 70, 239, 0.5)",
-        glow: "rgba(192, 38, 211, 0.4)"
-      },
-      {
-        wallpaper: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=1920&q=85",
-        glassBg: "rgba(10, 24, 18, 0.58)",
-        accent: "#34d399",
-        border: "rgba(16, 185, 129, 0.5)",
-        glow: "rgba(5, 150, 105, 0.4)"
-      },
-      {
-        wallpaper: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1920&q=85",
-        glassBg: "rgba(28, 14, 12, 0.58)",
-        accent: "#fb923c",
-        border: "rgba(249, 115, 22, 0.5)",
-        glow: "rgba(234, 88, 12, 0.4)"
-      },
-      {
-        wallpaper: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=1920&q=85",
-        glassBg: "rgba(16, 14, 30, 0.58)",
-        accent: "#a78bfa",
-        border: "rgba(139, 92, 246, 0.5)",
-        glow: "rgba(124, 58, 237, 0.4)"
-      },
-      {
-        wallpaper: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1920&q=85",
-        glassBg: "rgba(26, 16, 10, 0.6)",
-        accent: "#facc15",
-        border: "rgba(234, 179, 8, 0.5)",
-        glow: "rgba(202, 138, 4, 0.4)"
-      },
-      {
-        wallpaper: "https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&w=1920&q=85",
-        glassBg: "rgba(10, 22, 26, 0.58)",
-        accent: "#2dd4bf",
-        border: "rgba(20, 184, 166, 0.5)",
-        glow: "rgba(13, 148, 136, 0.4)"
-      }
+    // Unique High-Res Wallpapers (Deep Browns, Crisp Whites, and Aesthetic Dark Tones)
+    const wallpapers = [
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=85",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=85",
+      "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=1920&q=85",
+      "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1920&q=85",
+      "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1920&q=85",
+      "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1920&q=85",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=85",
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1920&q=85",
+      "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?auto=format&fit=crop&w=1920&q=85"
+    ];
+
+    // Brown, Cream, and White Color Palettes that smoothly cycle every 2 seconds
+    const colorPalettes = [
+      { accent: "#fdfaf6", border: "rgba(253, 250, 246, 0.45)", glow: "rgba(255, 255, 255, 0.35)", glass: "rgba(24, 16, 11, 0.6)" },
+      { accent: "#e3d5ca", border: "rgba(227, 213, 202, 0.45)", glow: "rgba(212, 163, 115, 0.35)", glass: "rgba(22, 14, 10, 0.6)" },
+      { accent: "#d5bdaf", border: "rgba(213, 189, 175, 0.45)", glow: "rgba(188, 108, 37, 0.35)", glass: "rgba(20, 12, 8, 0.6)" },
+      { accent: "#f5ebe0", border: "rgba(245, 235, 224, 0.45)", glow: "rgba(230, 204, 178, 0.35)", glass: "rgba(26, 18, 12, 0.6)" },
+      { accent: "#e9edc9", border: "rgba(233, 237, 201, 0.45)", glow: "rgba(204, 213, 174, 0.35)", glass: "rgba(18, 15, 10, 0.6)" }
     ];
 
     const quotes = [
@@ -595,7 +561,6 @@
       { text: "Work hard in silence, let your results make the noise.", author: "Frank Ocean" }
     ];
 
-    // Generate 12 hour tick marks on the analog clock face
     const analogFace = document.getElementById("analog-face");
     for (let i = 0; i < 12; i++) {
       const marker = document.createElement("div");
@@ -604,35 +569,54 @@
       analogFace.appendChild(marker);
     }
 
-    // 1. Rotate Wallpaper & Theme every 30 minutes + Quote every 30 minutes
-    let lastHalfHourSlot = -1;
+    // 1. Wallpaper Rotation Every 10 Minutes with Smooth Cross-Fade
+    let activeBg = 1;
+    let lastTenMinSlot = -1;
 
-    function updateThemeAndWallpaper() {
-      const halfHourSlot = Math.floor(Date.now() / (1000 * 60 * 30)); // Changes every 30 mins
-      if (halfHourSlot === lastHalfHourSlot) return;
-      lastHalfHourSlot = halfHourSlot;
+    function checkWallpaperRotation() {
+      const tenMinSlot = Math.floor(Date.now() / (1000 * 60 * 10)); // Changes every 10 mins
+      if (tenMinSlot === lastTenMinSlot) return;
+      lastTenMinSlot = tenMinSlot;
 
-      const currentTheme = themes[halfHourSlot % themes.length];
-      const root = document.documentElement;
+      const nextWall = wallpapers[tenMinSlot % wallpapers.length];
+      const bg1 = document.getElementById("bg1");
+      const bg2 = document.getElementById("bg2");
 
-      document.body.style.backgroundImage = `url('${currentTheme.wallpaper}')`;
-      root.style.setProperty("--glass-bg", currentTheme.glassBg);
-      root.style.setProperty("--accent", currentTheme.accent);
-      root.style.setProperty("--border", currentTheme.border);
-      root.style.setProperty("--glow-color", currentTheme.glow);
+      if (activeBg === 1) {
+        bg2.style.backgroundImage = `url('${nextWall}')`;
+        bg2.style.opacity = "1";
+        bg1.style.opacity = "0";
+        activeBg = 2;
+      } else {
+        bg1.style.backgroundImage = `url('${nextWall}')`;
+        bg1.style.opacity = "1";
+        bg2.style.opacity = "0";
+        activeBg = 1;
+      }
 
-      const currentQuote = quotes[halfHourSlot % quotes.length];
+      // Also rotate quote every 10 minutes
+      const currentQuote = quotes[tenMinSlot % quotes.length];
       document.getElementById("quote-text").textContent = `"${currentQuote.text}"`;
       document.getElementById("quote-author").textContent = `— ${currentQuote.author}`;
     }
 
-    // 2. Slow Continuous Color Breathing on Accent Text & Borders
-    let hueOffset = 0;
-    function slowAccentBreathing() {
-      hueOffset = (hueOffset + 0.08) % 360;
-      const baseTheme = themes[Math.max(0, lastHalfHourSlot) % themes.length];
-      // Subtle warm/cool tint shift while preserving readability
-      document.getElementById("board").style.filter = `hue-rotate(${Math.sin(hueOffset * (Math.PI / 180)) * 18}deg)`;
+    // Initialize first wallpaper instantly
+    const initialSlot = Math.floor(Date.now() / (1000 * 60 * 10));
+    document.getElementById("bg1").style.backgroundImage = `url('${wallpapers[initialSlot % wallpapers.length]}')`;
+    lastTenMinSlot = initialSlot;
+
+    // 2. Color Shifting Every 2 Seconds (Brown, White, Cream tones)
+    let colorIndex = 0;
+    function shiftColors() {
+      const palette = colorPalettes[colorIndex % colorPalettes.length];
+      const root = document.documentElement;
+
+      root.style.setProperty("--accent", palette.accent);
+      root.style.setProperty("--border", palette.border);
+      root.style.setProperty("--glow-color", palette.glow);
+      root.style.setProperty("--glass-bg", palette.glass);
+
+      colorIndex++;
     }
 
     // 3. Exam Timeline & Red Boundary Ring Setup
@@ -697,18 +681,17 @@
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
-    // Initialize and run
-    updateThemeAndWallpaper();
+    // Initial runs
     updateCountdown();
+    shiftColors();
 
-    setInterval(() => {
-      updateThemeAndWallpaper(); // Checks every second so it switches right on the 30-min mark
-      updateCountdown();
-    }, 1000);
+    // Intervals
+    setInterval(checkWallpaperRotation, 1000); // Checks every second for the 10-minute mark
+    setInterval(shiftColors, 2000);             // Changes colors every 2 seconds
+    setInterval(updateCountdown, 1000);
 
     function animateLoop() {
       updateAnalogClock();
-      slowAccentBreathing();
       requestAnimationFrame(animateLoop);
     }
     animateLoop();
