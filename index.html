@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CBSE 2027 Smart Board Live Wallpaper</title>
+  <title>CBSE 2027 Smart Board Natural Live Wallpaper</title>
   <style>
     :root {
-      --glass-bg: rgba(28, 18, 12, 0.62);
+      --glass-bg: rgba(30, 21, 15, 0.62);
       --text-primary: #fdfaf6;
       --text-secondary: #f0ebd8;
       --accent: #e3d5ca;
       --border: rgba(227, 213, 202, 0.45);
       --glow-color: rgba(212, 163, 115, 0.4);
-      --clock-red: #ef4444;
+      --clock-red: #e05656;
     }
 
     * {
@@ -26,7 +26,7 @@
       color: var(--text-primary);
       width: 100vw;
       height: 100vh;
-      background-color: #120c08;
+      background-color: #150f0a;
       overflow: hidden;
       display: flex;
       justify-content: center;
@@ -34,27 +34,27 @@
       padding: 1.5rem;
     }
 
-    /* Dual Wallpaper Layers for Smooth 10-Minute Fade Transitions */
+    /* Dual Background Layers for Smooth 10-Minute Nature Cross-Fades */
     .bg-layer {
       position: fixed;
       inset: 0;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      transition: opacity 2s ease-in-out;
+      transition: opacity 2.5s ease-in-out;
       z-index: 0;
     }
 
     #bg1 { opacity: 1; }
     #bg2 { opacity: 0; }
 
-    /* Screen Frame with Dynamic Brown/White Color Shifting */
+    /* Natural Screen Frame with Smoothly Shifting Natural Borders & Glows */
     .screen-frame {
       position: fixed;
       inset: 12px;
       border: 2px solid var(--border);
       border-radius: 18px;
-      background: radial-gradient(circle at center, transparent 56%, rgba(18, 11, 7, 0.7) 100%);
+      background: radial-gradient(circle at center, transparent 56%, rgba(15, 10, 7, 0.75) 100%);
       box-shadow: inset 0 0 65px var(--glow-color), 0 0 30px var(--glow-color);
       pointer-events: none;
       z-index: 2;
@@ -148,7 +148,7 @@
 
     .clock-track {
       fill: none;
-      stroke: rgba(239, 68, 68, 0.18);
+      stroke: rgba(224, 86, 86, 0.2);
       stroke-width: 6;
     }
 
@@ -159,7 +159,7 @@
       stroke-linecap: round;
       stroke-dasharray: 439.82;
       stroke-dashoffset: 0;
-      filter: drop-shadow(0 0 7px rgba(239, 68, 68, 0.9));
+      filter: drop-shadow(0 0 7px rgba(224, 86, 86, 0.9));
       transition: stroke-dashoffset 0.5s ease-out;
     }
 
@@ -340,7 +340,7 @@
       gap: 1rem;
       box-shadow: 0 10px 25px rgba(12, 7, 4, 0.65);
       text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
-      transition: background 2s ease, border-color: 2s ease;
+      transition: background 2s ease, border-color 2s ease;
     }
 
     .quote-text {
@@ -458,7 +458,7 @@
   </style>
 </head>
 <body>
-  <!-- Dual Background Layers for Smooth 10-Minute Crossfades -->
+  <!-- Dual Background Layers for Smooth 10-Minute Nature Cross-Fades -->
   <div class="bg-layer" id="bg1"></div>
   <div class="bg-layer" id="bg2"></div>
 
@@ -526,26 +526,25 @@
   </div>
 
   <script>
-    // Unique High-Res Wallpapers (Deep Browns, Crisp Whites, and Aesthetic Dark Tones)
-    const wallpapers = [
-      "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=85",
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=85",
-      "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=1920&q=85",
-      "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1920&q=85",
-      "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1920&q=85",
-      "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1920&q=85",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=85",
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1920&q=85",
-      "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?auto=format&fit=crop&w=1920&q=85"
+    // High-Resolution Natural Landscapes & Scenic Wallpapers
+    const natureWallpapers = [
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=85", // Ocean / Sky
+      "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1920&q=85", // Pine Forest Mist
+      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=85", // Sunset Mountain Valley
+      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=1920&q=85", // Green Forest Sunbeams
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=85", // Yosemite River
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1920&q=85", // Starry Night Mountains
+      "https://images.unsplash.com/photo-1426604966848-d7adacbd02bff?auto=format&fit=crop&w=1920&q=85", // Lush Valley Stream
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=85"  // Snowy Peak Sunrise
     ];
 
-    // Brown, Cream, and White Color Palettes that smoothly cycle every 2 seconds
-    const colorPalettes = [
-      { accent: "#fdfaf6", border: "rgba(253, 250, 246, 0.45)", glow: "rgba(255, 255, 255, 0.35)", glass: "rgba(24, 16, 11, 0.6)" },
-      { accent: "#e3d5ca", border: "rgba(227, 213, 202, 0.45)", glow: "rgba(212, 163, 115, 0.35)", glass: "rgba(22, 14, 10, 0.6)" },
-      { accent: "#d5bdaf", border: "rgba(213, 189, 175, 0.45)", glow: "rgba(188, 108, 37, 0.35)", glass: "rgba(20, 12, 8, 0.6)" },
-      { accent: "#f5ebe0", border: "rgba(245, 235, 224, 0.45)", glow: "rgba(230, 204, 178, 0.35)", glass: "rgba(26, 18, 12, 0.6)" },
-      { accent: "#e9edc9", border: "rgba(233, 237, 201, 0.45)", glow: "rgba(204, 213, 174, 0.35)", glass: "rgba(18, 15, 10, 0.6)" }
+    // Natural Color Palettes (Rich Browns, Soft Creams, Pure Whites, Warm Ambers, Sage Greens)
+    const naturalPalettes = [
+      { accent: "#fdfaf6", border: "rgba(253, 250, 246, 0.45)", glow: "rgba(255, 255, 255, 0.35)", glass: "rgba(25, 18, 13, 0.6)" },
+      { accent: "#e3d5ca", border: "rgba(227, 213, 202, 0.45)", glow: "rgba(212, 163, 115, 0.35)", glass: "rgba(22, 15, 11, 0.6)" },
+      { accent: "#ccd5ae", border: "rgba(204, 213, 174, 0.45)", glow: "rgba(163, 177, 138, 0.35)", glass: "rgba(16, 20, 14, 0.6)" },
+      { accent: "#e9edc9", border: "rgba(233, 237, 201, 0.45)", glow: "rgba(215, 221, 170, 0.35)", glass: "rgba(18, 19, 13, 0.6)" },
+      { accent: "#faedcd", border: "rgba(250, 237, 205, 0.45)", glow: "rgba(224, 187, 147, 0.35)", glass: "rgba(26, 18, 12, 0.6)" }
     ];
 
     const quotes = [
@@ -574,11 +573,11 @@
     let lastTenMinSlot = -1;
 
     function checkWallpaperRotation() {
-      const tenMinSlot = Math.floor(Date.now() / (1000 * 60 * 10)); // Changes every 10 mins
+      const tenMinSlot = Math.floor(Date.now() / (1000 * 60 * 10)); // 10 minutes
       if (tenMinSlot === lastTenMinSlot) return;
       lastTenMinSlot = tenMinSlot;
 
-      const nextWall = wallpapers[tenMinSlot % wallpapers.length];
+      const nextWall = natureWallpapers[tenMinSlot % natureWallpapers.length];
       const bg1 = document.getElementById("bg1");
       const bg2 = document.getElementById("bg2");
 
@@ -594,21 +593,19 @@
         activeBg = 1;
       }
 
-      // Also rotate quote every 10 minutes
       const currentQuote = quotes[tenMinSlot % quotes.length];
       document.getElementById("quote-text").textContent = `"${currentQuote.text}"`;
       document.getElementById("quote-author").textContent = `— ${currentQuote.author}`;
     }
 
-    // Initialize first wallpaper instantly
     const initialSlot = Math.floor(Date.now() / (1000 * 60 * 10));
-    document.getElementById("bg1").style.backgroundImage = `url('${wallpapers[initialSlot % wallpapers.length]}')`;
+    document.getElementById("bg1").style.backgroundImage = `url('${natureWallpapers[initialSlot % natureWallpapers.length]}')`;
     lastTenMinSlot = initialSlot;
 
-    // 2. Color Shifting Every 2 Seconds (Brown, White, Cream tones)
+    // 2. Natural Color Shifting Every 2 Seconds
     let colorIndex = 0;
     function shiftColors() {
-      const palette = colorPalettes[colorIndex % colorPalettes.length];
+      const palette = naturalPalettes[colorIndex % naturalPalettes.length];
       const root = document.documentElement;
 
       root.style.setProperty("--accent", palette.accent);
@@ -686,8 +683,8 @@
     shiftColors();
 
     // Intervals
-    setInterval(checkWallpaperRotation, 1000); // Checks every second for the 10-minute mark
-    setInterval(shiftColors, 2000);             // Changes colors every 2 seconds
+    setInterval(checkWallpaperRotation, 1000); // Check 10-min rotation
+    setInterval(shiftColors, 2000);             // Shift colors every 2 seconds
     setInterval(updateCountdown, 1000);
 
     function animateLoop() {
